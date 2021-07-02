@@ -95,7 +95,7 @@ proc is_collision {} {
 	return False
 }
 
-proc b_move {direction vitesse} {
+proc b_move {direction speed} {
 	global current_block current_block_name high_y_block
 	global w h v
 	set new_coords ""
@@ -106,11 +106,11 @@ proc b_move {direction vitesse} {
 		set x2 [lindex $block_coords 2]
 		set y2 [lindex $block_coords 3]
 		if {$direction == "y"} {
-			set y1 [expr {$y1 + $vitesse}]
-			set y2 [expr {$y2 + $vitesse}]
+			set y1 [expr {$y1 + $speed}]
+			set y2 [expr {$y2 + $speed}]
 		} elseif {$direction == "x"} {
-			set x1 [expr {$x1 + $vitesse}]
-			set x2 [expr {$x2 + $vitesse}]
+			set x1 [expr {$x1 + $speed}]
+			set x2 [expr {$x2 + $speed}]
 		}
 		if {$x1 < 0 || $x2 > $w} {
 			set moving False
